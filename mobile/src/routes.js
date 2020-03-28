@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 const AppStack = createStackNavigator()
 
 import Incidents from './pages/Incidents'
-import Details from './pages/Details'
+import Details from './pages/Detail'
 
 export default function Routes() {
   return (
