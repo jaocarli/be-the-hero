@@ -52,7 +52,7 @@ export default function NewIncident(){
 
                 <form>
                     <input 
-                        placeholder="Titulo do Caso" 
+                        placeholder="Titulo do caso" 
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                     />
@@ -62,7 +62,7 @@ export default function NewIncident(){
                         onChange={e => setDescription(e.target.value)}
                     />
                     <input 
-                        placeholder="Valor em Reais" 
+                        placeholder="Valor em reais" 
                         value={value}
                         onChange={e => setValue(e.target.value)}
                     />
