@@ -12,7 +12,7 @@ module.exports = {
   // browser: false,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "C:\\Users\\washi\\AppData\\Local\\Temp\\jest",
+  // cacheDirectory: "/tmp/jest_rs",
 
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
@@ -28,7 +28,7 @@ module.exports = {
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "/node_modules/"
   // ],
 
   // A list of reporter names that Jest uses when writing coverage reports
@@ -148,7 +148,7 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "/node_modules/"
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -171,7 +171,7 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "/node_modules/"
   // ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
