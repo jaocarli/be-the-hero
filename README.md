@@ -52,4 +52,4 @@ Entrem na [comunidade da He4rt Developers](https://discord.gg/8mA4CM2) e [na com
 
 ---
 
-Feito com ❤️ by João Carli :wave:
+<p align="center">Feito com ❤️ by <strong>João Carli </p>
