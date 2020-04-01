@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import logoImg from '../../assets/logo.svg';
 import { Link, useHistory } from 'react-router-dom'
 import { FiPower } from 'react-icons/fi';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiEdit } from 'react-icons/fi';
+import NewIncident from '../NewIncident'
 import api from '../../services/api';
 import './styles.css'
 
@@ -31,6 +32,13 @@ export default function Profile() {
         } catch (err) {
             alert('Erro ao deletar caso, tente novamente');
         }
+    }
+
+    async function handleUpdateIncident(incident) {
+        history.push({
+            pathname:"/incidents/new",
+            inc:incident
+        });
     }
 
     function handleLogout() {
@@ -65,6 +73,9 @@ export default function Profile() {
 
                         <button onClick={() => handleDeleteIncident(incident.id)} type="button">
                             <FiTrash2 size={20} color="#E02041" />
+                        </button>
+                        <button id="updateIncident" onClick={() => handleUpdateIncident(incident)} type="button">
+                            <FiEdit size={20} color="#E02041" />
                         </button>
                     </li>
                 ))}
