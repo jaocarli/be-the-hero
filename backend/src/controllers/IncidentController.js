@@ -80,6 +80,6 @@ module.exports = {
         value
       })
 
-    return response.status(200).json({ id })
+    return response.status(200).json(new_incident)
   }
 }
