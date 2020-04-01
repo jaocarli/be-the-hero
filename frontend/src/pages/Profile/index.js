@@ -3,7 +3,6 @@ import logoImg from '../../assets/logo.svg';
 import { Link, useHistory } from 'react-router-dom'
 import { FiPower } from 'react-icons/fi';
 import { FiTrash2, FiEdit } from 'react-icons/fi';
-import NewIncident from '../NewIncident'
 import api from '../../services/api';
 import './styles.css'
 
@@ -13,6 +12,7 @@ export default function Profile() {
     const ongName = localStorage.getItem('ongName');
     const ongId = localStorage.getItem('ongId');
     const history = useHistory();
+
     useEffect(() => {
         api.get('profile', {headers : { Authorization: ongId}})
             .then(response => {
@@ -34,17 +34,16 @@ export default function Profile() {
         }
     }
 
-    async function handleUpdateIncident(incident) {
+    function handleUpdateIncident(incident) {
         history.push({
-            pathname:"/incidents/new",
-            inc:incident
+            pathname: "/incidents/new",
+            inc: incident
         });
     }
 
     function handleLogout() {
         localStorage.clear();
         history.push('/');
-
     }
 
     return (
@@ -78,9 +77,7 @@ export default function Profile() {
                             <FiEdit size={20} color="#E02041" />
                         </button>
                     </li>
-                ))}
-
-                
+                ))} 
             </ul>
         </div>
     );

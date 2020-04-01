@@ -7,7 +7,7 @@ import api from '../../services/api';
 import './styles.css';
 import logoImg from '../../assets/logo.svg';
 
-export default function NewIncident(props){
+export default function NewIncident(props) {
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [value, setValue] = useState();
@@ -15,13 +15,13 @@ export default function NewIncident(props){
     const history = useHistory();
     const inc = props.location.inc
 
-    useEffect(()=>{ 
+    useEffect(() => { 
         setTitle(inc ? inc.title : '')
         setDescription(inc ? inc.description : '')
         setValue(inc ? inc.value: '') 
     }, [])
 
-    async function handleNewIncident(e){
+    async function handleNewIncident(e) {
         e.preventDefault();
         
         const data = {
@@ -36,19 +36,15 @@ export default function NewIncident(props){
                     headers: {
                         Authorization: ongId
                     }
-                });
-    
-                history.push('/profile');    
-            } else{
-
+                });    
+            } else {
                 await api.post('incidents',data, {
                     headers: {
                         Authorization: ongId
                     }
                 });
-
-                history.push('/profile');
             }
+            history.push('/profile');
 
         } catch (err) {
             alert('Ocorreu um erro ao cadastrar o caso');
