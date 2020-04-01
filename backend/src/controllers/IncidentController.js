@@ -57,4 +57,29 @@ module.exports = {
 
     return response.status(204).send()
   },
+
+  async update(request, response) {
+    const { id } = request.params
+    const { title, description, value } = request.body
+    const ong_id = request.headers.authorization
+
+    const incident = await connection('incidents')
+      .where('id', id)
+      .select('ong_id')
+      .first()
+
+    if (incident.ong_id !== ong_id) {
+      return response.status(401).json({ error: 'Operation not permitted.' })
+    }
+   
+    const new_incident = await connection('incidents')
+      .where('id', id)
+      .update({
+        title,
+        description,
+        value
+      })
+
+    return response.status(200).json({ id })
+  }
 }
