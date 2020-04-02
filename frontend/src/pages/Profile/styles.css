@@ -70,6 +70,14 @@
   background: transparent;
 }
 
+.profile-container ul li button#updateIncident {
+  position: absolute;
+  right: 48px;
+  top: 24px;
+  border: 0;
+  background: transparent;
+}
+
 .profile-container ul li button:hover{
   opacity: 0.8;
 }
