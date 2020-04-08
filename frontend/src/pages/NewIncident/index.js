@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -7,23 +7,16 @@ import api from '../../services/api';
 import './styles.css';
 import logoImg from '../../assets/logo.svg';
 
-export default function NewIncident(props) {
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
-    const [value, setValue] = useState();
+export default function NewIncident(){
+    const [title,setTitle] = useState('');
+    const [description,setDescription] = useState('');
+    const [value,setValue] = useState('');
     const ongId = localStorage.getItem('ongId');
     const history = useHistory();
-    const inc = props.location.inc
 
-    useEffect(() => { 
-        setTitle(inc ? inc.title : '')
-        setDescription(inc ? inc.description : '')
-        setValue(inc ? inc.value: '') 
-    }, [])
-
-    async function handleNewIncident(e) {
+    async function handleNewIncident(e){
         e.preventDefault();
-        
+
         const data = {
             title,
             description,
@@ -31,19 +24,12 @@ export default function NewIncident(props) {
         };
 
         try {
-            if(inc) {
-                await api.put(`incidents/${inc.id}`,data, {
-                    headers: {
-                        Authorization: ongId
-                    }
-                });    
-            } else {
-                await api.post('incidents',data, {
-                    headers: {
-                        Authorization: ongId
-                    }
-                });
-            }
+            await api.post('incidents',data,{
+                headers: {
+                    Authorization: ongId
+                }
+            });
+
             history.push('/profile');
 
         } catch (err) {
